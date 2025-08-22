@@ -5,7 +5,6 @@ import Principal from './pages/principal/Principal';
 import PanoramaViewer from './pages/panoramaViewer/PanoramaViewer'; // Nova página
 import Manage from './pages/manage/Manage';
 import UserManagement from './pages/userManagement/UserManagement';
-import LccPage from './pages/lcc/LccPage';
 
 const App: React.FC = () => {
   return (
@@ -14,7 +13,6 @@ const App: React.FC = () => {
       <Route path="/manage" element={<Manage />} />
       <Route path="/userManagement" element={<UserManagement />} />
       <Route path="/principal" element={<Principal />} />
-      <Route path="/lcc" element={<LccPage />} /> {/* Nova rota */}
       <Route path="/panorama/:imageName" element={<PanoramaViewer />} /> {/* Nova rota */}
     </Routes>
   );
