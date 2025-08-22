@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useRef, useState } from 'react';
 import MenuBar from './menuBar/MenuBar';
@@ -47,7 +46,6 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
       if (potreeContainerRef.current) {
         const viewerInstance = new Potree.Viewer(potreeContainerRef.current);
         viewerRef.current = viewerInstance; // Atribua à ref
-        const viewer = viewerRef.current;
         setViewerState(viewerInstance); // Define o viewer no estado o mais cedo possível
 
         viewerInstance.setEDLEnabled(useEDL);
