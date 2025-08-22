@@ -1,0 +1,90 @@
+.users-management-container {
+    margin-top: 20px;
+}
+
+.add-user-button {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #361bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-user-button:hover {
+    background-color: #5853fc;
+}
+
+.users-list {
+    list-style: none;
+    padding: 0;
+    max-height: 650px; /* ajuste conforme a necessidade */
+    overflow-y: auto;
+}
+
+.users-list::-webkit-scrollbar-thumb {
+    background-color: #361bbc;
+    border-radius: 4px;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.dropdown-selections {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dropdown-selections select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.dropdown-selections button {
+    padding: 5px 10px;
+    background-color: #361bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown-selections button:hover {
+    background-color: #5853fc;
+}
+
+.loading-container-users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    /* ajuste a altura conforme necessário */
+}
+
+.spinner-users {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #361bbc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

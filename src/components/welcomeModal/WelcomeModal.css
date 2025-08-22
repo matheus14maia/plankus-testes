@@ -1,0 +1,77 @@
+.welcome-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.welcome-modal {
+    background: white;
+    color: #333;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-modal h2 {
+    margin-top: 0;
+    color: #361bbc;
+    text-align: center;
+}
+
+.modal-content {
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px; /* Espaço para a barra de rolagem */
+}
+
+.modal-content p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.dismiss-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.dismiss-container input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.dismiss-container label {
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.close-button {
+    padding: 10px 20px;
+    background-color: #361bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    align-self: center;
+}
+
+.close-button:hover {
+    background-color: #5853fc;
+}

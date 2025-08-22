@@ -1,0 +1,92 @@
+.manage-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.manage-content-area {
+    padding: 20px;
+    width: 100%;
+}
+
+.add-user-button {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #361bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-user-button:hover {
+    background-color: #5853fc;
+}
+
+.manage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    /* Adiciona espaço abaixo do cabeçalho */
+}
+
+.manage-header h1 {
+    margin: 0;
+    /* Remove a margem padrão do h1 */
+}
+
+.download-viewer-button {
+    padding: 8px 16px;
+    background-color: #361bbc;
+    /* Mesma cor dos outros botões */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    /* Remove sublinhado do link */
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.download-viewer-button:hover {
+    background-color: #5853fc;
+    /* Efeito hover */
+}
+
+.users-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.user-item button {
+    padding: 5px 10px;
+    background-color: #361bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-item button:hover {
+    background-color: #5853fc;
+}

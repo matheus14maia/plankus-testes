@@ -1,0 +1,59 @@
+.user-management-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.user-management-main-content {
+    display: flex;
+    flex: 1;
+}
+
+.user-management-content-area {
+    padding: 20px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.add-user-button {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #361bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-user-button:hover {
+    background-color: #5853fc;
+}
+
+.users-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.user-item button {
+    padding: 5px 10px;
+    background-color: #361bbc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-item button:hover {
+    background-color: #5853fc;
+}

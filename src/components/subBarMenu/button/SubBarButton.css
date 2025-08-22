@@ -1,0 +1,33 @@
+.sub-bar-button {
+    background-color: #1e2027; /* Cor padrão */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sub-bar-button:hover {
+    background-color: #cccbcd; /* Cor ao passar o mouse */
+  }
+  
+  .sub-bar-button.selected {
+    background-color: #cccbcd; /* Cor quando o botão está ativo */
+  }
+  
+  .tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1e2027;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 1;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    top: -40px;
+  }
+  

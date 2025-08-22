@@ -1,0 +1,56 @@
+/* Principal.css */
+
+/* Estilos existentes */
+
+.principal-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra na tela principal */
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+}
+
+.principal-content-area {
+  flex: 1;
+  padding: 20px;
+  color: #000; /* Escritas em preto */
+  overflow: hidden; /* Para esconder qualquer conteúdo que ultrapasse */
+  position: relative; /* Necessário para o posicionamento do visualizador */
+  display: flex; /* Certifica que os filhos respeitem a área disponível */
+  justify-content: center; /* Alinha o conteúdo horizontalmente */
+  align-items: center; /* Alinha o conteúdo verticalmente */
+}
+
+
+.principal-sidebar-open {
+  width: 200px;
+  background-color: #cccbcd;
+  height: calc(100vh - 60px); /* Ajuste abaixo da topbar */
+  transition: width 0.3s ease;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1); /* Sombra na lateral da sidebar */
+  position: relative;
+}
+
+.principal-sidebar-closed {
+  width: 0;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+#principal-topbar-container {
+  height: 60px;
+  background-color: #cccbcd;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra abaixo da topbar */
+}
+

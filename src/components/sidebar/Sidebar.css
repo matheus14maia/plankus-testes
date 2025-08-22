@@ -1,0 +1,83 @@
+/* Sidebar.css */
+#principal-sidebar {
+  background-color: #cccbcd;
+  color: #000;
+  position: fixed;
+  top: 60px;
+  /* Abaixo da topbar */
+  left: 0;
+  height: calc(100vh - 60px);
+  /* Altura total da tela menos a altura da topbar */
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+  /* Sombra na lateral da sidebar */
+}
+
+.principal-sidebar-open {
+  width: 200px;
+}
+
+.principal-sidebar-closed {
+  width: 0;
+  visibility: hidden;
+}
+
+.principal-sidebar-content {
+  padding: 20px;
+}
+
+.principal-sidebar-content p {
+  margin: 10px 0;
+  color: #000;
+}
+
+/* Estilo geral para os botões */
+.sidebar-button {
+  background-color: #cccbcd;
+  /* Cor de fundo padrão */
+  color: #000;
+  /* Cor do texto */
+  border: none;
+  /* Remove bordas */
+  border-radius: 4px;
+  /* Bordas arredondadas */
+  padding: 10px 15px;
+  /* Espaçamento interno */
+  width: 100%;
+  /* Preenche a largura do container */
+  text-align: left;
+  /* Alinha o texto à esquerda */
+  margin-bottom: 10px;
+  /* Espaçamento entre os botões */
+  font-size: 16px;
+  /* Tamanho do texto */
+  cursor: pointer;
+  /* Cursor para indicar interatividade */
+  transition: background-color 0.3s, transform 0.2s;
+  /* Transições suaves */
+}
+
+/* Efeito hover */
+.sidebar-button:hover {
+  background-color: #aaa;
+  /* Cor de fundo ao passar o mouse */
+  transform: scale(1.02);
+  /* Leve aumento */
+}
+
+/* Efeito ao clicar */
+.sidebar-button:active {
+  background-color: #aaa;
+  /* Cor de fundo ao clicar */
+  transform: scale(0.98);
+  /* Leve redução */
+}
+
+/* Divisor estilizado */
+.sidebar-divider {
+  height: 1px;
+  background-color: #aaa;
+  margin: 10px 0;
+  width: 100%;
+}

@@ -1,0 +1,82 @@
+.menu-bar {
+  position: absolute;
+  top: 90%; /* Coloca a barra próxima ao fundo */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Garante o alinhamento central */
+  background-color: #1e2027;
+  border-radius: .5rem;
+  border: 1px solid #fff;
+  padding: 4px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  cursor: move;
+  user-select: none;
+}
+
+.menu-bar.horizontal {
+  flex-direction: row;
+  padding: 2px 5px;
+}
+
+.menu-bar.vertical {
+  flex-direction: column;
+  padding: 5px 2px;
+}
+
+.menu-bar.fixed {
+  cursor: default;
+  user-select: none; /* Evita seleção de texto ao arrastar */
+}
+
+.menu-bar button {
+  padding: 5px;
+  background-color: #1e2027;
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.menu-bar button.selected {
+  background-color: #cccbcd;
+}
+
+.sub-menu {
+  position: absolute;
+  background-color: #1e2027;
+  border: 1px solid #fff;
+  padding: 0.5px 10px;
+  z-index: 1001;
+  border-radius: .5rem;
+  white-space: nowrap;
+}
+
+.sub-bar.horizontal button.selected {
+  background-color: #cccbcd;
+}
+
+.sub-bar.vertical button.selected {
+  background-color: #cccbcd;
+}
+
+.sub-horizontal {
+  top: 55px;
+  left: 0;
+  flex-direction: row;
+}
+
+.sub-vertical {
+  top: 0;
+  left: 90px;
+  flex-direction: column;
+}
+
+.sub-up {
+  bottom: 55px;
+  top: auto;
+}
+
+.sub-left {
+  right: 90px;
+  left: auto;
+}

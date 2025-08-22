@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "module": "ES6",  // Configura o TypeScript para suportar módulos ES6
+    "target": "esnext",  // Define o padrão de recursos para ES2017+
+    "moduleResolution": "node",  // Resolve módulos como Node.js
+    "noUnusedLocals": false,
+    "allowJs": true,  // Permitir arquivos .js e .jsx
+    "esModuleInterop": true,  // Permite importar módulos ES6
+    "skipLibCheck": true,  // Ignorar a verificação de arquivos de tipo globais
+    "forceConsistentCasingInFileNames": true,  // Força que todos os arquivos tenham um caso consistente
+    "types": ["@webgpu/types"]
+  }
+}

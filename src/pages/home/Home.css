@@ -1,0 +1,177 @@
+/* Estilo geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Top-bar */
+.home-top-bar {
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Para garantir que fique acima do conteúdo */
+}
+
+.home-logo img {
+  height: 60px;
+}
+
+/* Login and Register buttons */
+.home-login-form {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  box-shadow: none; /* Remover qualquer sombra */
+  align-items: center;
+}
+
+.home-login-form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Largura fixa para ambos os botões */
+  height: 35px;
+  margin-right: 1rem;
+  flex-shrink: 0; /* Evitar que os botões encolham */
+}
+
+.home-login-form button {
+  background-color: #361bbc;
+}
+
+.home-login-form button:hover {
+  background-color: #5853fc;
+}
+
+/* Content (Section) */
+.home-content {
+  flex-grow: 1;
+  padding: 6rem 0rem 0rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.home-company-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+  height: 70vh;
+  position: relative;
+  background: url('/assets/home.png') no-repeat center center;
+  background-size: cover;
+  padding: 2rem;
+  margin-top: 45px;
+}
+
+.home-company-info {
+  z-index: 1; /* Garante que o texto fique acima do fundo */
+  max-width: 40%; /* Limita a largura do bloco de texto */
+}
+
+.home-company-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Footer */
+.home-footer {
+  background-color: #361bbc;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.home-footer p {
+  margin: 0.5rem 0;
+}
+
+.loading-container-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner-login {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #361bbc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .home-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .home-login-form {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-direction: row;
+  }
+
+  .home-button-group {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .home-content {
+    padding: 10rem 1rem 2rem;
+  }
+
+  .home-company-section {
+    flex-direction: column;
+  }
+
+  .home-company-image {
+    margin-top: 2rem;
+    height: 50vh;
+  }
+}
