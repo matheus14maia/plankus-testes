@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import MenuBar from './menuBar/MenuBar';
 import { loadPointCloud } from './LoadPointCloud';
 import * as THREE from 'three'; // Não mais necessário
-import NavigationInstructions from './subBarMenu/navigation/NavigationInstructions';
 import LeftPanel from './leftPanel/LeftPanel';
 import { Project } from '../utils/types';
 import Joystick from './Joystick';
@@ -85,16 +84,9 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
                 if (focusedImage) {
                   console.log(focusedImage);
                   // Atualiza os sliders com os valores da imagem focada
-                  if(focusedImage.time == 0.00){
-                    setCourse(-focusedImage.course + 90);
+                    setCourse(focusedImage.course);
                     setPitch(focusedImage.pitch);
                     setRoll(focusedImage.roll);
-                  }
-                  else{
-                    setCourse(-focusedImage.course);
-                    setPitch(focusedImage.pitch);
-                    setRoll(focusedImage.roll + 90);
-                  }
                 }
               });
 
@@ -197,8 +189,6 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
         </div>
       )}
 
-      <NavigationInstructions viewer={viewer} />
-
       <LeftPanel
         viewer={viewer}
         projectId={project.id}
@@ -233,7 +223,7 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
         />
       </div>
 
-      <div style={{ position: 'absolute', top: '25%', left: '10px', zIndex: 3, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div style={{ position: 'absolute', top: '1%', left: '30%', zIndex: 3, display: 'flex', flexDirection: 'column', gap: '10px' }}>
         {project.images_url && (
           <button
             onClick={toggleDisks}

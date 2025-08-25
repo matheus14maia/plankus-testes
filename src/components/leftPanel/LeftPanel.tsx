@@ -307,17 +307,19 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
     <div
       style={{
         position: 'absolute',
-        top: '50%',
-        left: '10px',
+        top: '0',
+        left: '0',
         color: 'white',
         backgroundColor: '#1e2027',
-        borderRadius: '0.5rem',
+        borderRadius: '0 0.5rem 0.5rem 0',
         border: '1px solid #fff',
-        width: isExpanded ? '350px' : '40px',
-        height: isExpanded ? '400px' : '40px',
-        transition: 'width 0.3s, height 0.3s',
+        width: isExpanded ? '20%' : '2%',
+        height: '100%',
+        transition: 'width 0.3s',
         overflow: 'hidden',
         zIndex: 2,
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       {/* Ícone para expandir/encolher */}
@@ -326,8 +328,9 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
         style={isExpanded ? {
           cursor: 'pointer',
           position: 'absolute',
-          top: '13px',
-          right: '10px',
+          top: '50%',
+          right: '1%',
+          transform: 'translate(-50%, -50%)',
         } : {
           cursor: 'pointer',
           position: 'absolute',
@@ -344,7 +347,7 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
 
       {isExpanded && (
         <div style={{ padding: '1rem', height: '100%', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', marginBottom: '1rem', overflowX: 'auto' }}>
             <button
               onClick={() => setActiveTab('configuracoes')}
               style={{

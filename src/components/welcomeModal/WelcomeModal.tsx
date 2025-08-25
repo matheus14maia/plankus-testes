@@ -36,7 +36,7 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ onClose, onDismissForever }
             dentro de uma pasta com o "nome do projeto-json" que você escolheu onde baixar.
           </p>
           <p>
-            Qualquer dúvida mande um email para <strong>matheus@plankus.com</strong>.
+            Qualquer dúvida mande um email para <strong>suporte_viewer@plankus.com</strong>.
           </p>
           <p>Atenciosamente,<br />Plankus Engenharia!</p>
         </div>

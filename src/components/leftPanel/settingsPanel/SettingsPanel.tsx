@@ -4,6 +4,7 @@
 import React from 'react';
 import SceneObjectsPanel from '../sceneObjectsPanel/SceneObjectsPanel';
 import ClipSettingsPanel from '../clipSettingsPanel/ClipSettingsPanel';
+import NavigationInstructions from '@/components/subBarMenu/navigation/NavigationInstructions';
 
 declare const Potree: any;
 
@@ -231,6 +232,13 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
       title: 'Objetos na Cena',
       content: (
         <SceneObjectsPanel viewer={viewer} />
+      )
+    },
+    {
+      id: 'navigation',
+      title: 'Velocidade de Navegação',
+      content: (
+        <NavigationInstructions viewer={viewer} />
       )
     },
     // EXEMPLO: Como adicionar uma nova seção no futuro

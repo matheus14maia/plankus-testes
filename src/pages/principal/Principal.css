@@ -54,3 +54,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra abaixo da topbar */
 }
 
+#potree-unfocus-btn {
+  background-color: #1e2027 !important;
+  color: white !important;
+  border: 1px solid #fff !important;
+  border-radius: 5px !important;
+  padding: 0.5rem 1rem !important;
+  cursor: pointer !important;
+  font-size: 1rem !important; /* Ajuste o tamanho da fonte */
+}
+
+#potree-unfocus-btn:hover {
+  background-color: #cccbcd !important;
+}

@@ -77542,7 +77542,8 @@ ENDSEC
 
 			let elUnfocus = document.createElement("input");
 			elUnfocus.type = "button";
-			elUnfocus.value = "unfocus";
+			elUnfocus.value = "Sair";
+			elUnfocus.id = "potree-unfocus-btn";
 			elUnfocus.style.position = "absolute";
 			elUnfocus.style.right = "10px";
 			elUnfocus.style.top = "10px";
