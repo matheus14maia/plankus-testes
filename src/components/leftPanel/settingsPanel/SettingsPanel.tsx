@@ -5,6 +5,7 @@ import React from 'react';
 import SceneObjectsPanel from '../sceneObjectsPanel/SceneObjectsPanel';
 import ClipSettingsPanel from '../clipSettingsPanel/ClipSettingsPanel';
 import NavigationInstructions from '@/components/subBarMenu/navigation/NavigationInstructions';
+import RotationSpeed from '@/components/subBarMenu/navigation/RotationSpeed';
 
 declare const Potree: any;
 
@@ -279,6 +280,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
           {spheresVisible ? 'Ocultar Varreduras' : 'Mostrar Varreduras'}
         </button>
         <NavigationInstructions viewer={viewer} />
+        <RotationSpeed viewer={viewer} />
       </div>
       {sections.map((section) => {
         // Se a condição existir e for falsa, não renderiza a seção
