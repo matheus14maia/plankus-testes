@@ -42,16 +42,17 @@ const NavigationInstructions: React.FC<NavigationInstructionsProps> = ({ viewer 
 
 
     return (
-        <div style={{ display: 'flex'}}>
+        <div style={{ display: 'absolute', width: '100%'}}>
 
             {/* Controle de velocidade fora do menu de instruções */}
             <div
                 style={{
-                    marginTop: '0',
+                    marginTop: '0.5rem',
                     backgroundColor: '#1e2027',
                     color: 'white'
                 }}
             >
+                <strong>Controle de Velocidade: </strong>
                 <input
                     id="speedControl"
                     type="range"

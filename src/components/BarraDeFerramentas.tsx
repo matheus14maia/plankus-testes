@@ -20,7 +20,8 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
   const potreeContainerRef = useRef<HTMLDivElement>(null);
   const [viewer, setViewerState] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [disksVisible, setDisksVisible] = useState(true);
+  const [spheresVisible, setSpheresVisible] = useState(true);
+  const [pointCloudVisible, setPointCloudVisible] = useState(true);
   const [pointBudget, setPointBudget] = useState(1_000_000);
   const [pointSize, setPointSize] = useState(2.0);
   const [pointSizeType, setPointSizeType] = useState(Potree.PointSizeType.FIXED);
@@ -166,12 +167,22 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
   }, [useEDL, viewer]);
 
   // Função para alternar a visibilidade dos discos
-  const toggleDisks = () => {
+  const toggleSpheres = () => {
     if (images360Ref.current) {
       const newVisible = !images360Ref.current.visible;
       // CORREÇÃO: A visibilidade é controlada no objeto principal 'images', não em 'images.node'
       images360Ref.current.visible = newVisible;
-      setDisksVisible(newVisible);
+      setSpheresVisible(newVisible);
+    }
+  };
+
+  const togglePointCloud = () => {
+    if (viewerRef.current && viewerRef.current.scene.pointclouds.length > 0) {
+      const newVisibility = !pointCloudVisible;
+      viewerRef.current.scene.pointclouds.forEach((pc: any) => {
+        pc.visible = newVisibility;
+      });
+      setPointCloudVisible(newVisibility);
     }
   };
 
@@ -211,6 +222,11 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
         roll={roll}
         setRoll={setRoll}
         images360={images360Ref.current}
+
+        toggleSpheres={toggleSpheres}
+        spheresVisible={spheresVisible}
+        togglePointCloud={togglePointCloud}
+        pointCloudVisible={pointCloudVisible}
       />
 
       <MenuBar viewer={viewer} projectId={project.id} />
@@ -221,20 +237,6 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
           alt="Logo"
           style={{ width: '200px', height: 'auto' }}
         />
-      </div>
-
-      <div style={{ position: 'absolute', top: '1%', left: '30%', zIndex: 3, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        {project.images_url && (
-          <button
-            onClick={toggleDisks}
-            style={{
-              backgroundColor: '#1e2027', color: 'white', border: '1px solid #fff',
-              borderRadius: '5px', padding: '0.5rem', cursor: 'pointer'
-            }}
-          >
-            {disksVisible ? 'Ocultar Câmeras' : 'Mostrar Câmeras'}
-          </button>
-        )}
       </div>
 
       {isMobile && viewer && <Joystick viewer={viewer} />}

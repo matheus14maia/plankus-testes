@@ -30,6 +30,10 @@ interface SettingsPanelProps {
   roll: number;
   setRoll: (value: number) => void;
   images360: any; // Para verificar se uma imagem está focada
+  toggleSpheres: () => void;
+  spheresVisible: boolean;
+  togglePointCloud: () => void;
+  pointCloudVisible: boolean;
 }
 
 interface SettingSection {
@@ -59,7 +63,11 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
   setPitch,
   roll,
   setRoll,
-  images360
+  images360,
+  toggleSpheres,
+  spheresVisible,
+  togglePointCloud,
+  pointCloudVisible
 }) => {
 
   const toggleSection = (sectionId: string) => {
@@ -234,13 +242,6 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
         <SceneObjectsPanel viewer={viewer} />
       )
     },
-    {
-      id: 'navigation',
-      title: 'Velocidade de Navegação',
-      content: (
-        <NavigationInstructions viewer={viewer} />
-      )
-    },
     // EXEMPLO: Como adicionar uma nova seção no futuro
     // {
     //   id: 'appearanceSettings',
@@ -255,6 +256,30 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', color: 'white', width: '90%' }}>
+      {/* NOVO: Seção de botões para controle de visibilidade */}
+      <div style={{ marginBottom: '1rem', padding: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <button onClick={togglePointCloud} style={{
+          border: '1px solid #ccc', borderRadius: '5px',
+          padding: '0.5rem',
+          cursor: 'pointer',
+          backgroundColor: 'transparent',
+          color: 'white',
+          fontSize: '0.9rem'
+        }}>
+          {pointCloudVisible ? 'Ocultar Nuvem de Pontos' : 'Mostrar Nuvem de Pontos'}
+        </button>
+        <button onClick={toggleSpheres} style={{
+          border: '1px solid #ccc', borderRadius: '5px',
+          padding: '0.5rem',
+          cursor: 'pointer',
+          backgroundColor: 'transparent',
+          color: 'white',
+          fontSize: '0.9rem'
+        }}>
+          {spheresVisible ? 'Ocultar Varreduras' : 'Mostrar Varreduras'}
+        </button>
+        <NavigationInstructions viewer={viewer} />
+      </div>
       {sections.map((section) => {
         // Se a condição existir e for falsa, não renderiza a seção
         if (section.condition && !section.condition()) {

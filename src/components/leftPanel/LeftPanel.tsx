@@ -32,6 +32,10 @@ interface LeftPanelProps {
   roll: number;
   setRoll: (value: number) => void;
   images360: any;
+  toggleSpheres: () => void;
+  spheresVisible: boolean;
+  togglePointCloud: () => void;
+  pointCloudVisible: boolean;
 }
 
 const LeftPanel: React.FC<LeftPanelProps> = ({ 
@@ -54,7 +58,11 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
   setPitch,
   roll,
   setRoll,
-  images360
+  images360,
+  toggleSpheres,
+  spheresVisible,
+  togglePointCloud,
+  pointCloudVisible
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
   const [activeTab, setActiveTab] = useState('configuracoes'); // Abas: 'anotacoes', 'imagens' ou 'medidas'
@@ -424,6 +432,10 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
                 roll={roll}
                 setRoll={setRoll}
                 images360={images360}
+                toggleSpheres={toggleSpheres}
+                spheresVisible={spheresVisible}
+                togglePointCloud={togglePointCloud}
+                pointCloudVisible={pointCloudVisible}
               />
             ) : activeTab === 'anotacoes' ? (
               <AnnotationsPanel
