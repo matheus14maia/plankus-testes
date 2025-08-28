@@ -86,8 +86,8 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
                   console.log(focusedImage);
                   // Atualiza os sliders com os valores da imagem focada
                     setCourse(focusedImage.course);
-                    setPitch(focusedImage.pitch);
-                    setRoll(focusedImage.roll);
+                    setRoll(focusedImage.pitch);
+                    setPitch(focusedImage.roll);
                 }
               });
 
@@ -122,8 +122,8 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
     // --- 1. ATUALIZA OS DADOS NO OBJETO JAVASCRIPT ---
     // (Esta parte é opcional, mas boa prática para manter a consistência)
     focusedImage.course = course;
-    focusedImage.pitch = pitch;
-    focusedImage.roll = roll;
+    focusedImage.pitch = roll;
+    focusedImage.roll = pitch;
     // --- 2. APLICA AS TRANSFORMAÇÕES AOS OBJETOS THREE.JS ---
 
     // Aplica a rotação à esfera e ao marcador

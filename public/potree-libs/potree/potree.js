@@ -77493,7 +77493,7 @@ ENDSEC
 	let sgHigh = new SphereGeometry(1, 128, 128);
 
 	let sm = new MeshBasicMaterial({side: BackSide});
-	let smHovered = new MeshBasicMaterial({side: BackSide, color: 0xff0000});
+	let smHovered = new MeshBasicMaterial({side: FrontSide, color: 0xff0000});
 
 	let raycaster = new Raycaster();
 	let currentlyHovered = null;
@@ -77680,8 +77680,8 @@ ENDSEC
 			this.viewer.setControls(previousView.controls);
 
 			this.viewer.scene.view.setView(
-				previousView.position, 
-				previousView.target,
+				pos, 
+				target,
 				500
 			);
 
