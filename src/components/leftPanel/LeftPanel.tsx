@@ -13,7 +13,7 @@ declare const Potree: any;
 interface LeftPanelProps {
   viewer: any; // Substitua 'any' pelo tipo correto, se possível
   projectId: number;
-  csv_url: string;
+  coordinates: string;
   // Adicionar novas props para as configurações
   pointBudget: number;
   setPointBudget: (value: number) => void;
@@ -41,7 +41,7 @@ interface LeftPanelProps {
 const LeftPanel: React.FC<LeftPanelProps> = ({ 
   viewer, 
   projectId, 
-  csv_url,
+  coordinates,
   pointBudget,
   setPointBudget,
   pointSize,
@@ -100,8 +100,8 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
 
   // Carregar as imagens do CSV
   useEffect(() => {
-    getImagesFromCSV(csv_url).then((data) => setImages(data));
-  }, [csv_url]);
+    getImagesFromCSV(coordinates).then((data) => setImages(data));
+  }, [coordinates]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value.toLowerCase());
@@ -111,18 +111,26 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
     .filter((image) => image.name.toLowerCase().includes(searchQuery))
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  const flyToImage = (position: { x: number; y: number; z: number }) => {
-    if (!position || isNaN(position.x) || isNaN(position.y) || isNaN(position.z)) {
-      console.error("❌ Posição inválida:", position);
+  const flyToImage = (imageFromList: { name: string; x: number; y: number; z: number }, images360: any) => {
+    // Garante que o objeto images360 e sua lista interna estão prontos
+    if (!images360 || !images360.images) {
+      console.error("❌ O objeto images360 ou sua lista de imagens não está disponível.");
       return;
     }
-    const posX = Number(position.x);
-    const posY = Number(position.y);
-    const posZ = Number(position.z) + 0.5;
-    console.log(`📍 Movendo a câmera para: x=${posX}, y=${posY}, z=${posZ}`);
-    viewer.scene.view.position.set(posX, posY, posZ);
-    viewer.scene.view.lookAt(posX, posY, posZ - 10);
-    viewer.render();
+
+    // Procura a instância da classe Image360 que corresponde ao item clicado.
+    // A correspondência é feita pelo nome do arquivo.
+    const targetImage360 = images360.images.find(
+      (imgInstance: any) => imgInstance.file.endsWith(imageFromList.name + ".JPG")
+    );
+
+    // Se encontrar a imagem correspondente, chama o método focus() com ela.
+    if (targetImage360) {
+      console.log(`📷 Focando na imagem: ${imageFromList.name}`);
+      images360.focus(targetImage360);
+    } else {
+      console.error(`❌ A imagem 360 correspondente a '${imageFromList.name}' não foi encontrada na cena.`);
+    }
   };
 
   const formatPosition = (position: any) => {
@@ -452,6 +460,7 @@ const LeftPanel: React.FC<LeftPanelProps> = ({
                 searchQuery={searchQuery}
                 handleSearch={handleSearch}
                 flyToImage={flyToImage}
+                images360={images360}
               />
             ) : (
               <div>

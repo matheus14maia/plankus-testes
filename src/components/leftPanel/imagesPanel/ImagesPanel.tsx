@@ -1,4 +1,5 @@
-// ImagesPanel.tsx
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// ImagesPanel.tsx (MODIFICADO)
 import React from 'react';
 
 interface Image {
@@ -8,18 +9,22 @@ interface Image {
   z: number;
 }
 
+// ✅ INTERFACE DA PROP CORRIGIDA
 interface ImagesPanelProps {
   filteredImages: Image[];
   searchQuery: string;
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  flyToImage: (position: { x: number; y: number; z: number }) => void;
+  // A função agora espera receber um único objeto 'Image'
+  flyToImage: (image: Image, images360: any) => void;
+  images360: any;
 }
 
 const ImagesPanel: React.FC<ImagesPanelProps> = ({
   filteredImages,
   searchQuery,
   handleSearch,
-  flyToImage
+  flyToImage,
+  images360
 }) => {
   return (
     <div>
@@ -34,7 +39,9 @@ const ImagesPanel: React.FC<ImagesPanelProps> = ({
         {filteredImages.map((image, index) => (
           <li
             key={index}
-            onClick={() => flyToImage({ x: image.x, y: image.y, z: image.z + 0.5 })}
+            // ✅ CHAMADA ONCLICK CORRIGIDA
+            // Passa o objeto 'image' específico da lista para a função
+            onClick={() => flyToImage(image, images360)}
             style={{
               cursor: 'pointer',
               color: 'white',

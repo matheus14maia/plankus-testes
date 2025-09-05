@@ -203,7 +203,7 @@ const BarraDeFerramentas: React.FC<BarraDeFerramentasProps> = ({ project }) => {
       <LeftPanel
         viewer={viewer}
         projectId={project.id}
-        csv_url={project.csv_url}
+        coordinates={project.images_url+"/coordinates.txt"}
         pointBudget={pointBudget}
         setPointBudget={setPointBudget}
         pointSize={pointSize}
